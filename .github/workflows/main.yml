@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    env:
+      NODE_OPTIONS: '--openssl-legacy-provider'
 
     steps:
       - name: Checkout Code
