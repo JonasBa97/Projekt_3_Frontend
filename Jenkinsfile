@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     environment {
-      NODE_OPTIONS=--openssl-legacy-provider
+      NODE_OPTIONS= "--openssl-legacy-provider"
     }
-
     
     triggers {
         githubPush()
-    }
-
-
-    tools {
-        nodejs 'Node 20'
     }
 
     stages {
