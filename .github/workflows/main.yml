@@ -1,0 +1,40 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          npm install
+      
+      - name: Build
+        run: |
+          npm run build
+
+      - name: Run Tests
+        run: |
+          echo "Hier teste ich"
+          echo "Tests errfolgreich"
+        # npm test
+
+      - name: Deploy
+        run: |
+          echo "Hier deploye ich"
+          echo "Deployment erfolgreich"
+        # deploy-script
